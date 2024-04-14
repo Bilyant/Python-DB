@@ -10,6 +10,5 @@ CREATE TABLE customers (
 	"address" address
 );
 
-INSERT INTO customers (
-	'Customer_name', ('street_name', 'city_name', 'city_code')
-); 
+INSERT INTO customers (customer_name, customer_address)
+VALUES  ('Customer_name', ('street_name', 'city_name', 'city_code')); 

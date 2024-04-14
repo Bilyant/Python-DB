@@ -4,5 +4,5 @@ CREATE TABLE minions_birthdays (
 	date_of_birth DATE,
 	age INTEGER,
 	present VARCHAR(100),
-	PARTY TIMESTAMPTZ
+	party TIMESTAMPTZ
 );
