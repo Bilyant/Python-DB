@@ -1,9 +1,8 @@
-DELETE FROM 
-	employees
-WHERE 
-	department_id BETWEEN 1 AND 2;
-
-SELECT
+SELECT 
 	*
 FROM
-	employees;
+	employees
+ORDER BY
+	salary DESC
+LIMIT
+	1
