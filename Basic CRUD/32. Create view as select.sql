@@ -1,9 +1,9 @@
-CREATE TABLE 
-	company_chart
+CREATE VIEW
+	view_company_chart
 AS SELECT
-	CONCAT_WS(' ', first_name, last_name) AS "Full Name",
-	job_title AS "Job Title",
-	department_id AS "Department ID",
-	manager_id AS "Manager ID"
+	"Full Name",
+	"Job Title",
 FROM
-	employees;
+	company_chart
+WHERE
+	"Manager ID" = 184;

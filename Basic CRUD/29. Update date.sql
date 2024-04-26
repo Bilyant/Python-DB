@@ -1,9 +1,6 @@
-CREATE TABLE 
-	company_chart
-AS SELECT
-	CONCAT_WS(' ', first_name, last_name) AS "Full Name",
-	job_title AS "Job Title",
-	department_id AS "Department ID",
-	manager_id AS "Manager ID"
-FROM
-	employees;
+UPDATE
+	projects
+SET
+	end_date = start_date + INTERVAL '5 months'
+WHERE
+	end_date is Null;
