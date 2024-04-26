@@ -1,10 +1,10 @@
-SELECT
-	CONCAT_WS(' ', first_name, last_name) as "Full Name",
-	job_title,
-	salary
-FROM
-	employees
-WHERE
-	salary IN(12500, 14000, 23600, 25000)
-ORDER BY
-	salary DESC;
+INSERT INTO
+	departments (department, manager_id)
+VALUES
+	('Finance', 3),
+	('Information Services', 42),
+	('Document Control', 90),
+	('Quality Assurance', 274),
+	('Facilities and Maintenance', 218),
+	('Shipping and Receiving', 85),
+	('Executive', 109);

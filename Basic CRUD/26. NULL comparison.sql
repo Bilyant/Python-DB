@@ -1,10 +1,10 @@
 SELECT
-	CONCAT_WS(' ', first_name, last_name) as "Full Name",
-	job_title,
-	salary
+	"id",
+	first_name,
+	last_name
 FROM
 	employees
 WHERE
-	salary IN(12500, 14000, 23600, 25000)
-ORDER BY
-	salary DESC;
+	middle_name is NULL
+LIMIT
+	3;
