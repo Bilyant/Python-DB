@@ -1,5 +1,5 @@
 SELECT
-	"id",
-	side * height / 2 AS area
+	title,
+	TRUNC(cost, 3) AS "modifid_price"
 FROM
-	triangles;
+	books;

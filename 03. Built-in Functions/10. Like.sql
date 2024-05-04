@@ -1,5 +1,6 @@
 SELECT
-	"id",
-	side * height / 2 AS area
+	title
 FROM
-	triangles;
+	books
+WHERE
+	title LIKE 'Harry Potter%'

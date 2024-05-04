@@ -1,5 +1,6 @@
 SELECT
-	"id",
-	side * height / 2 AS area
+	first_name,
+	last_name,
+	TO_CHAR(born, 'YYYY') AS "year"
 FROM
-	triangles;
+	authors;
