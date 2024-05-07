@@ -1,67 +1,90 @@
 CREATE TABLE
-	manufacturers (
+	students (
 		"id" SERIAL PRIMARY KEY,
-		name VARCHAR(50)
+		"student_name" VARCHAR(50)
 	)
 ;
 
 CREATE TABLE
-	models (
-		"id" INT GENERATED ALWAYS AS IDENTITY
-			(START 1000 INCREMENT 1)
-				PRIMARY KEY,
-		model_name VARCHAR(50),
-		manufacturer_id INT,
-		
-		CONSTRAINT fk_models_manufacturers
-		FOREIGN KEY (manufacturer_id)
-		REFERENCES manufacturers(id)
+	exams (
+		"id" INT GENERATED ALWAYS AS IDENTITY 
+		(START 101 INCREMENT 1) PRIMARY KEY,
+		"exam_name" VARCHAR(50)
 	)
 ;
 
 CREATE TABLE
-	production_year (
-		id SERIAL PRIMARY KEY,
-		established_on DATE,
-		manufacturer_id INT,
+	study_halls (
+		"id" SERIAL PRIMARY KEY,
+		"study_hall_name" VARCHAR(100),
+		exam_id INT,
 		
-		CONSTRAINT fk_production_year_manufacturers
-		FOREIGN KEY (manufacturer_id)
-		REFERENCES manufacturers(id)
+		CONSTRAINT pk_study_halls_exams
+		FOREIGN KEY (exam_id)
+		REFERENCES exams(id)
+	)
+;
+
+CREATE TABLE
+	students_exams (
+		student_id INT,
+		exam_id INT,
+		
+		CONSTRAINT pk_students_exams
+		PRIMARY KEY (student_id, exam_id),
+		
+		CONSTRAINT pk_students_exams_students
+		FOREIGN KEY (student_id)
+		REFERENCES students (id),
+		
+		CONSTRAINT pk_students_exams_exams
+		FOREIGN KEY (exam_id)
+		REFERENCES exams (id)
 	)
 ;
 
 INSERT INTO
-	manufacturers (
-		"name"
+	students (
+		"student_name"
 	)
 VALUES
-	('BMW'),
-	('Tesla'),
-	('Lada')
+	('Mila'),
+	('Toni'),
+	('Ron')
 ;
 
 INSERT INTO
-	models (
-		model_name,
-		manufacturer_id
+	exams (
+		"exam_name"
 	)
 VALUES
-	('Xi', 1),
-	('i6',1 ),
-	('Model S', 2),
-	('Model X', 2),
-	('Model 3', 2),
-	('Nova', 3)
+	('Python Advanced'),
+	('Python OOP'),
+	('PostgreSQL')
 ;
 
 INSERT INTO
-	production_year (
-		established_on,
-		manufacturer_id
+	study_halls (
+		"study_hall_name",
+		"exam_id"
+	)
+VALUES ('Open Source Hall', 102),
+       ('Inspiration Hall', 101),
+       ('Creative Hall', 103),
+       ('Masterclass Hall', 103),
+       ('Information Security Hall', 103)
+;
+
+INSERT INTO
+	students_exams (
+		"student_id",
+		"exam_id"
 	)
 VALUES
-	('1916-03-01', 1),
-	('2003-01-01', 2),
-	('1966-05-01', 3)
+	(1, 101),
+	(1, 102),
+	(2, 101),
+	(3, 103),
+	(2, 102),
+	(2, 103)
 ;
